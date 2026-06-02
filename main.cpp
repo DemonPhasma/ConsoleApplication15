@@ -5,15 +5,18 @@
 #include <cmath>
 #include <algorithm>
 
+
 struct Physics {
     sf::Vector3f position = { 0.0f, 5.0f, 0.0f };
     sf::Vector3f velocity = { 0.0f, 0.0f, 0.0f };
     sf::Vector3f angularVelocity = { 150.0f, 100.0f, 50.0f };
 };
 
+
 Physics cubePhys;
 const float gravity = -9.81f;
 const float floorLevel = -2.0f;
+
 
 struct Rotation {
     float x = 0.0f;
@@ -21,14 +24,17 @@ struct Rotation {
     float z = 0.0f;
 };
 
+
 Rotation rotation;
 bool isFilled = true;
 float rotationSpeed = 2.0f;
 bool autoRotate = false;
 
+
 bool isUnfolded = false;
 float currentUnfoldAngle = 0.0f;
 float zoomFactor = 1.0f;
+
 
 
 void drawFaceNumber(int face) {
@@ -79,6 +85,7 @@ void drawFaceNumber(int face) {
     glEnd();
     glEnable(GL_LIGHTING);
 }
+
 
 
 void drawCube() {
@@ -137,6 +144,7 @@ void drawCube() {
             }
         }
 
+
         glBegin(GL_QUADS);
         glNormal3fv(normals[face]);
 
@@ -155,6 +163,7 @@ void drawCube() {
         glPopMatrix();
     }
 }
+
 
 
 void setupOpenGL(int width, int height) {
@@ -184,6 +193,7 @@ void setupOpenGL(int width, int height) {
     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
     glShadeModel(GL_SMOOTH);
 }
+
 
 int main() {
     sf::ContextSettings settings;
